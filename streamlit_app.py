@@ -3,8 +3,8 @@ import numpy as np
 import joblib
 
 # Load model dan scaler
-model = joblib.load('model_attrition_final.pkl')
-scaler = joblib.load('scaler_attrition_final.pkl')
+model = joblib.load('model_attrition_logreg.pkl')
+scaler = joblib.load('scaler_attrition_logreg.pkl')
 
 st.title("🎯 HR Attrition Prediction")
 st.markdown("Masukkan data karyawan untuk memprediksi apakah ia akan keluar dari perusahaan atau tidak.")
