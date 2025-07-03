@@ -2,11 +2,11 @@ import streamlit as st
 import numpy as np
 import joblib
 
-# Load model dan scaler
+# Load model Logistic Regression dan scaler
 model = joblib.load('model_attrition_logreg.pkl')
 scaler = joblib.load('scaler_attrition_logreg.pkl')
 
-st.title("🎯 HR Attrition Prediction")
+st.title("🎯 HR Attrition Prediction (Logistic Regression)")
 st.markdown("Masukkan data karyawan untuk memprediksi apakah ia akan keluar dari perusahaan atau tidak.")
 
 # Input fitur
@@ -17,8 +17,10 @@ job_level = st.selectbox("Tingkat Jabatan (Job Level)", [1, 2, 3, 4, 5])
 education = st.selectbox("Tingkat Pendidikan (Education Level)", [1, 2, 3, 4, 5])
 distance_from_home = st.slider("Jarak ke Tempat Kerja (km)", 1, 50, 10)
 
-# Proses input
+# Gabungkan semua input
 input_data = np.array([[age, monthly_income, years_at_company, job_level, education, distance_from_home]])
+
+# Scaling
 input_scaled = scaler.transform(input_data)
 
 # Prediksi
