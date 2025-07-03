@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import joblib
 
-# Load model Logistic Regression dan scaler
+# Load model dan scaler
 model = joblib.load('model_attrition_logreg.pkl')
 scaler = joblib.load('scaler_attrition_logreg.pkl')
 
@@ -17,18 +17,22 @@ job_level = st.selectbox("Tingkat Jabatan (Job Level)", [1, 2, 3, 4, 5])
 education = st.selectbox("Tingkat Pendidikan (Education Level)", [1, 2, 3, 4, 5])
 distance_from_home = st.slider("Jarak ke Tempat Kerja (km)", 1, 50, 10)
 
-# Gabungkan semua input
+# Susun input menjadi array sesuai urutan fitur saat training
 input_data = np.array([[age, monthly_income, years_at_company, job_level, education, distance_from_home]])
 
-# Scaling
-input_scaled = scaler.transform(input_data)
+# Pastikan scaler menerima input dengan jumlah fitur yang sesuai
+try:
+    input_scaled = scaler.transform(input_data)
 
-# Prediksi
-if st.button("Prediksi"):
+    # Prediksi
     prediction = model.predict(input_scaled)
     probability = model.predict_proba(input_scaled)[0][1]
 
-    if prediction[0] == 1:
-        st.error(f"Karyawan berpotensi keluar 😟 (Probabilitas: {probability:.2%})")
-    else:
-        st.success(f"Karyawan kemungkinan besar tetap bekerja 🙂 (Risiko keluar: {probability:.2%})")
+    if st.button("Prediksi"):
+        if prediction[0] == 1:
+            st.error(f"Karyawan berpotensi keluar 😟 (Probabilitas: {probability:.2%})")
+        else:
+            st.success(f"Karyawan kemungkinan besar tetap bekerja 🙂 (Risiko keluar: {probability:.2%})")
+
+except ValueError as e:
+    st.error(f"Error input: {e}")
