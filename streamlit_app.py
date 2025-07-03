@@ -3,8 +3,8 @@ import numpy as np
 import joblib
 
 # Load model dan scaler
-model = joblib.load('model_attrition.fixed.pkl')
-scaler = joblib.load('scaler_attrition.fixed.pkl')
+model = joblib.load('model_attrition_fixed.pkl')
+scaler = joblib.load('scaler_attrition_fixed.pkl')
 
 st.title("Attrition Prediction - HR Analytics")
 
