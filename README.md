@@ -22,8 +22,8 @@ Dataset yang digunakan adalah [IBM HR Analytics Attrition Dataset](https://www.k
 📁 attrition-project/
 ├── streamlit_app.py             # Aplikasi utama Streamlit
 ├── requirements.txt             # Daftar dependensi
-├── model_attrition.pkl          # File model prediksi
-├── scaler_attrition.pkl         # File scaler preprocessing
+├── model_attrition_rf.pkl       # File model prediksi
+├── scaler_attrition_rf.pkl      # File scaler Random Forest
 └── README.md                    # Deskripsi proyek
 ```
 
