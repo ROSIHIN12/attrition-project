@@ -7,7 +7,7 @@ Dataset yang digunakan adalah [IBM HR Analytics Attrition Dataset](https://www.k
 
 ## 🚀 Fitur Aplikasi
 - Input data karyawan melalui form di Streamlit
-- Prediksi risiko attrition (keluar) menggunakan model Random Forest
+- Prediksi risiko attrition (keluar) menggunakan model regression
 - Probabilitas prediksi ditampilkan secara real-time
 
 ## 🛠 Teknologi
@@ -22,8 +22,8 @@ Dataset yang digunakan adalah [IBM HR Analytics Attrition Dataset](https://www.k
 📁 attrition-project/
 ├── streamlit_app.py             # Aplikasi utama Streamlit
 ├── requirements.txt             # Daftar dependensi
-├── model_attrition_rf.pkl       # File model prediksi
-├── scaler_attrition_rf.pkl      # File scaler Random Forest
+├── model_attrition_logreg.pkl   # File model prediksi
+├── scaler_attrition_logreg.pkl  # File scaler Regression
 └── README.md                    # Deskripsi proyek
 ```
 
