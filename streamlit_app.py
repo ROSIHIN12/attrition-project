@@ -50,8 +50,11 @@ education = st.selectbox(
 
 distance_from_home = st.slider("Jarak ke Tempat Kerja (km)", 1, 50, 10)
 
-# Susun input menjadi array sesuai urutan fitur saat training
-input_data = np.array([[age, monthly_income, years_at_company, job_level, education, distance_from_home]])
+# Normalisasi pendapatan ke satuan ribuan agar cocok dengan scaler saat training
+normalized_income = monthly_income / 1000
+
+# Susun input sesuai urutan fitur saat training
+input_data = np.array([[age, normalized_income, years_at_company, job_level, education, distance_from_home]])
 
 # Proses prediksi
 try:
