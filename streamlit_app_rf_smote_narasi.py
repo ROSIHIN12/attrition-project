@@ -7,7 +7,7 @@ model = joblib.load('model_attrition_rf_smote.pkl')
 scaler = joblib.load('scaler_attrition_rf_smote.pkl')
 
 st.title("🌳 HR Attrition Prediction (Random Forest + SMOTE)")
-st.markdown("Masukkan data karyawan untuk memprediksi apakah ia akan keluar dari perusahaan atau tidak.")
+st.markdown("Masukkan data karyawan untuk memprediksi apakah seorang karyawan akan keluar dari perusahaan atau tidak.")
 st.caption("Catatan: Gaji diisi dalam satuan Rupiah (misal: 5.000.000)")
 
 # Input fitur
@@ -72,30 +72,19 @@ try:
 
         if prediction[0] == 1:
             st.markdown(
-                "- Karyawan ini berpotensi keluar karena kemungkinan kombinasi dari beberapa faktor seperti:
-"
-                "  - Usia masih muda
-"
-                "  - Lama bekerja masih singkat
-"
-                "  - Gaji relatif rendah
-"
-                "  - Jarak rumah yang jauh
-
-"
+                "- Karyawan ini berpotensi keluar karena kemungkinan kombinasi dari beberapa faktor seperti:"
+                "  - Usia masih muda"
+                "  - Lama bekerja masih singkat"
+                "  - Gaji relatif rendah"
+                "  - Jarak rumah yang jauh"
                 "Faktor-faktor ini dapat memicu keinginan untuk mencari pekerjaan yang lebih sesuai atau lebih dekat."
             )
         else:
             st.markdown(
-                "- Karyawan ini kemungkinan tetap bertahan karena didukung oleh:
-"
-                "  - Masa kerja yang cukup lama
-"
-                "  - Usia yang matang
-"
-                "  - Kemungkinan telah beradaptasi dengan lingkungan kerja
-
-"
+                "- Karyawan ini kemungkinan tetap bertahan karena didukung oleh:"
+                "  - Masa kerja yang cukup lama"
+                "  - Usia yang matang"
+                "  - Kemungkinan telah beradaptasi dengan lingkungan kerja"
                 "Hal-hal tersebut menjadi indikasi loyalitas dan stabilitas kerja."
             )
 
