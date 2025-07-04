@@ -7,7 +7,7 @@ model = joblib.load('model_attrition_logreg.pkl')
 scaler = joblib.load('scaler_attrition_logreg.pkl')
 
 st.title("🎯 HR Attrition Prediction (Logistic Regression)")
-st.markdown("Masukkan data karyawan untuk memprediksi apakah ia akan keluar dari perusahaan atau tidak.")
+st.markdown("Masukkan data karyawan untuk memprediksi apakah akan keluar dari perusahaan atau tidak.")
 
 st.caption("Catatan: Gaji diisi dalam satuan Rupiah (misal: 5.000.000)")
 
